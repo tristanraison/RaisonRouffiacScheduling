@@ -218,11 +218,37 @@ date(J, M) :-
 
 
 %cours optimisation_combinatoire%
-seance('CM OPTI', optimisation_combinatoire, knippel, cm, GM4).
-seance('TD1 OPTI', optimisation_combinatoire, knippel, td, GM4a).
-seance('TD2 OPTI', optimisation_combinatoire, knippel, td, GM4b).
+cours('CM OPTI', optimisation_combinatoire, knippel, cm, GM4).
+cours('TD1 OPTI', optimisation_combinatoire, knippel, td, GM4a).
+cours('TD2 OPTI', optimisation_combinatoire, knippel, td, GM4b).
 
 %cours mnedp1%
-seance('CM mnedp1', mnedp1, gout, cm, GM4).
-seance('TD1 mnedp1', mnedp1, gout, td, GM4a).
-seance('TD2 mnedp1', mnedp1, gout, td, GM4b).
+cours('CM mnedp1', mnedp1, gout, cm, GM4).
+cours('TD1 mnedp1', mnedp1, gout, td, GM4a).
+cours('TD2 mnedp1', mnedp1, gout, td, GM4b).
+
+
+
+%rappel/definition STACKOVERFLOW
+%In Prolog, predicates are identified by their name (or functor) and their number of arguments (or arity). %
+%Thus, items/1 denotes a predicate with functor items and arity 1 %
+%while location/2 denotes a predicate with functor location and ar%ity 2. %
+%Two predicates with the same functor but different arities are different predicates.%
+
+%:- dynamic en fonction du nombre d arguments%
+
+%signature (id_seance, type, matiere, nom_cours)
+:- dynamic seance/4.
+
+%participation d un groupe de classe a un cours (seance de cours)
+%signature (groupe, id_seance)
+:- dynamic groupeSeance/2.
+
+%participation d un professeur a un cours (seance de cours)
+:- dynamic profSeance/2.
+
+
+%
+%% IL FAUDRAIT PENSER A AJOUTER UN ORDRE DANS LA SUCCESSION DES COURS%
+%% UN DS NE PEUT PAS AVOIR LIEUX AVANT QUE TOUS LES TD ET CM AIENT ETE EFFECTUES PAR EXEMPLE 
+%
