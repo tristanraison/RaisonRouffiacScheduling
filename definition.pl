@@ -60,7 +60,7 @@ matiere(b_splines).
 professeur(abdulrab).
 professeur(portier).
 professeur(fortier).
-professeur(tonoir).
+professeur(tonnoir).
 professeur(godichon).
 professeur(forcadel).
 professeur(gleyse).
@@ -226,6 +226,17 @@ cours('TD2 OPTI', optimisation_combinatoire, knippel, td, GM4b).
 cours('CM mnedp1', mnedp1, gout, cm, GM4).
 cours('TD1 mnedp1', mnedp1, gout, td, GM4a).
 cours('TD2 mnedp1', mnedp1, gout, td, GM4b).
+
+
+
+salle(S, N) :- salle(S, N, _).
+
+
+%type de cours acceuilli par la salle
+%member(a,L) true si a est dans L false sinon%
+accueille(Salle, Type) :-
+    salle(Salle, _, ListTypeCours),
+    member(Type, ListTypeCours).
 
 
 
