@@ -38,6 +38,7 @@ matiere(gestion).
 matiere(equation_hamilton_jacobi).
 matiere(mnedp1).
 matiere(mnedp2).
+matiere(analyse_numerique).
 matiere(resolution_systeme_lineaire).
 matiere(calcul_scientifique).
 matiere(analyse_fonctionnelle).
@@ -53,6 +54,7 @@ matiere(b_splines).
 professeur(abdulrab).
 professeur(portier).
 professeur(fortier).
+professeur(tonoir).
 professeur(godichon).
 professeur(forcadel).
 professeur(gleyse).
@@ -148,12 +150,15 @@ salle(DU_RJ_04, 100, [cm,ds]).
 
 % signature(nom_groupe, effectif) %
 
-groupe(GM3a,32).
-groupe(GM3b,40).
+groupe(GM3a,22).
+groupe(GM3b,27).
+groupe(GM3,59).
 groupe(GM4a,28).
-groupe(GM4b,34).
+groupe(GM4b,17).
+groupe(GM4,45).
 groupe(GM5a,12).
 groupe(GM5b,18).
+groupe(GM5,30).
 
 
 %
@@ -195,3 +200,23 @@ date(J, M) :-
     mois(M),
     joursParMois(Max),
     between(1, Max, J).
+
+
+%
+%%                                     
+%%% Liste séance de cours à suivre GM INSA %%%
+%%
+%
+
+% signature(nom_du_cours, matiere, professeur, Type, groupe) %
+
+
+%cours optimisation_combinatoire%
+seance('CM OPTI', optimisation_combinatoire, knippel, cm, GM4).
+seance('TD1 OPTI', optimisation_combinatoire, knippel, td, GM4a).
+seance('TD2 OPTI', optimisation_combinatoire, knippel, td, GM4b).
+
+%cours mnedp1%
+seance('CM mnedp1', mnedp1, gout, cm, GM4).
+seance('TD1 mnedp1', mnedp1, gout, td, GM4a).
+seance('TD2 mnedp1', mnedp1, gout, td, GM4b).
