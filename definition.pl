@@ -74,11 +74,70 @@ professeur(dubois).
 professeur(marx).
 
 
+%
+%%                                     
+%%% Creneaux cours GM %%%
+%%
+%
+
+%correspond aux dates débuts fin du cours, comprends une pause dejeuner%
+% a adapter au quart d heure près%
+
+creneau(1, '08h00', '09h30').
+creneau(2, '09h45', '11h15').
+creneau(3, '11h30', '13h00').
+creneau(4, '13h00', '14h30').
+creneau(5, '15h', '16h30').
+creneau(6, '16h45', '18h15').
+creneau(7, '18h30', '20h00').
 
 
+%
+%%                                     
+%%% Format creneaux GM %%%
+%%
+%
+
+formatCreneau(cm).
+formatCreneau(projet).
+formatCreneau(td).
+formatCreneau(tp).
+formatCreneau(ds).
 
 
+%
+%%                                     
+%%% Liste des salles INSA GM %%%
+%%
+%
 
+% signature(nom_salle, capacite_salle, cours_dispense_dans_cette_salle)
+
+%bougainville%
+salle(bo_203, 30, [tp, td, projet]).
+salle(bo_205, 30, [tp, td, projet]).
+salle(bo_003, 15, [projet]).
+salle(bo_005, 15, [projet]).
+salle(bo_210, 30, [td]).
+
+%magellan%
+salle(MA_I_R1_07, 30, [td]).
+salle(MA_I_R1_08, 30, [td]).
+salle(MA_E_R1_09, 60, [td, cm]).
+salle(MA_E_R1_07, 30, [td]).
+salle(MA_G_RC_05, 250, [td, cm, ds]).
+salle(MA_G_RC07, 150, [td, cm, ds]).
+salle(MA_H_R1_207, 25, [td, tp, projet]).
+salle(MA_E_R1_209, 20, [td, tp, projet]).
+salle(MA_HR_107, 80, [td, cm, ds]).
+
+%dumont durville%
+salle(DU_RJ_08, 30, [td]).
+salle(DU_RJ_09, 30, [td]).
+salle(DU_RJ_10, 30, [td]).
+salle(DU_RJ_03, 100, [cm]).
+salle(DU_RJ_02, 100, [cm]).
+salle(DU_RJ_04, 100, [cm,ds]).
 
 
 
