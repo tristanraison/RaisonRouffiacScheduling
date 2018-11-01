@@ -182,3 +182,16 @@ mois(8).
 mois(9).
 mois(10).
 
+
+%nombre de jours scolaire par mois%
+% ex jour= 1 lundi 1er septembre, jour6=lundi 8 septembre, jour 10= mercredi 10 septembre etc%
+%approximativement 20jours car 4 semaines de 5 jours scolaire% 
+joursParMois(20).
+
+%definition du jour + mois scolaire%
+%condition pour verifier que le jour est bien défini%
+%ex: date(28,2) non def, (4,189) non def, (4,4) bien def%
+date(J, M) :-
+    mois(M),
+    joursParMois(Max),
+    between(1, Max, J).
