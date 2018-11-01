@@ -111,7 +111,7 @@ formatCreneau(ds).
 %%
 %
 
-% signature(nom_salle, capacite_salle, cours_dispense_dans_cette_salle)
+% signature(nom_salle, capacite_salle, cours_dispense_dans_cette_salle) %
 
 %bougainville%
 salle(bo_203, 30, [tp, td, projet]).
@@ -140,13 +140,45 @@ salle(DU_RJ_02, 100, [cm]).
 salle(DU_RJ_04, 100, [cm,ds]).
 
 
+%
+%%                                     
+%%% Liste des groupes INSA GM %%%
+%%
+%
+
+% signature(nom_groupe, effectif) %
+
+groupe(GM3a,32).
+groupe(GM3b,40).
+groupe(GM4a,28).
+groupe(GM4b,34).
+groupe(GM5a,12).
+groupe(GM5b,18).
 
 
+%
+%
+%%%% PARTIE SUR LES DATES 
+%
+%
 
 
+%
+%%                                     
+%%% Liste des mois cours INSA %%%
+%%
+%
 
+%index 1 = septembre, 10=juin%
 
-
-
-
+mois(1).
+mois(2).
+mois(3).
+mois(4).
+mois(5).
+mois(6).
+mois(7).
+mois(8).
+mois(9).
+mois(10).
 
