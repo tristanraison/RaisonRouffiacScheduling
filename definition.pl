@@ -218,14 +218,15 @@ date(J, M) :-
 
 
 %cours optimisation_combinatoire%
-cours('CM OPTI', optimisation_combinatoire, knippel, cm, GM4).
-cours('TD1 OPTI', optimisation_combinatoire, knippel, td, GM4a).
-cours('TD2 OPTI', optimisation_combinatoire, knippel, td, GM4b).
+cours('CM_OPTI', optimisation_combinatoire, knippel, cm, GM4).
+cours('TD1_OPTI', optimisation_combinatoire, knippel, td, GM4a).
+cours('TD2_OPTI', optimisation_combinatoire, knippel, td, GM4b).
+cours('DS_OPTI', optimisation_combinatoire, knippel, ds, GM4).
 
 %cours mnedp1%
-cours('CM mnedp1', mnedp1, gout, cm, GM4).
-cours('TD1 mnedp1', mnedp1, gout, td, GM4a).
-cours('TD2 mnedp1', mnedp1, gout, td, GM4b).
+cours('CM_mnedp1', mnedp1, gout, cm, GM4).
+cours('TD1_mnedp1', mnedp1, gout, td, GM4a).
+cours('TD2_mnedp1', mnedp1, gout, td, GM4b).
 
 
 
@@ -235,9 +236,9 @@ salle(S, N) :- salle(S, N, _).
 %type de cours acceuilli par la salle
 %member(a,L) true si a est dans L false sinon%
 accueille(Salle, Type) :-
-    salle(Salle, _, ListTypeCours),
-    member(Type, ListTypeCours).
-
+    member(Type, ListTypeCours),
+    salle(Salle, _, ListTypeCours).
+    
 
 
 %rappel/definition STACKOVERFLOW
@@ -263,3 +264,20 @@ accueille(Salle, Type) :-
 %% IL FAUDRAIT PENSER A AJOUTER UN ORDRE DANS LA SUCCESSION DES COURS%
 %% UN DS NE PEUT PAS AVOIR LIEUX AVANT QUE TOUS LES TD ET CM AIENT ETE EFFECTUES PAR EXEMPLE 
 %
+
+%On pourrait définir un enchainement de séance de cours%
+
+%
+%%                                     
+%%% enchainement logique de 2 seances de cours GM INSA %%%
+%%
+%
+
+% signature(cours_apres, cours_avant) %
+
+:- dynamic ordreSeance/2.
+
+ordreSeance(TD1_OPTI, CM_OPTI ).
+ordreSeance(TD2_OPTI, CM_OPTI ).
+ordreSeance(DS_OPTI, TD1_OPTI).
+ordreSeance(DS_OPTI, TD2_OPTI).
