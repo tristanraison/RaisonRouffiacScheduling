@@ -281,3 +281,36 @@ ordreSeance(TD1_OPTI, CM_OPTI ).
 ordreSeance(TD2_OPTI, CM_OPTI ).
 ordreSeance(DS_OPTI, TD1_OPTI).
 ordreSeance(DS_OPTI, TD2_OPTI).
+
+%
+%%
+%%%
+%%%% ECRITURE
+%%%
+%%
+%
+
+computeProfSeance(P, Cours) :-
+    \+ is_list(P),
+    assertz(profSeance(P, Cours)).
+computeProfSeance([], _).
+computeProfSeance([P|Profs], Cours) :- % si plusieurs profs par séance
+    computeProfSeance(P, Cours),
+    computeProfSeance(Profs, Cours).
+
+
+computeSeance(Nom, Mat, Profs, Type, Groupe, [X]) :-
+    computeProfSeance(Profs, X),
+    assertz(groupeSeance(Groupe, X)),
+    assertz(seance(X, Type, Mat, Nom)).
+computeSeance(Nom, Mat, Profs, Type, Groupe, [X, Y|S]) :-
+    (ordreSeance(Y, X, _, _); assertz(ordreSeance(Y, X))),
+    computeSeance(Nom, Mat, Profs, Type, Groupe, [X]),
+    computeSeance(Nom, Mat, Profs, Type, Groupe, [Y|S]).    
+
+:- forall(
+    cours(Nom, Mat, Prof, Type, Groupe),
+    (
+        computeSeance(Nom, Mat, Prof, Type, Groupe, Ids)
+    )
+).
