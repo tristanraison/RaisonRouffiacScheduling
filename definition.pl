@@ -208,6 +208,14 @@ date(J, M) :-
     between(1, Max, J).
 
 
+%Date BEFORE and Date AFTER
+
+dateBefore( _, M1,  _, M2) :- M1 < M2, !.
+dateBefore(J1, M1, J2, M2) :- M1 = M2, J1 < J2, !.
+
+dateAfter( _, M1,  _, M2) :- M1 > M2, !.
+dateAfter(J1, M1, J2, M2) :- M1 = M2, J1 > J2, !.
+
 %
 %%                                     
 %%% Liste séance de cours à suivre GM INSA %%%
